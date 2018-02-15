@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" />
+ 	<title>Company</title>
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<h4>You account was created successfully</h4>
+	<form action="#" method="post" th:action="@{/register}" th:object="${register}">
+		<p th:text="'Name: ' + ${register.name}"> </p>
+		<p th:text="'Surname: ' + ${register.surname}"> </p>
+		<p th:text="'Address: ' + ${register.address}"> </p>
+		<p th:text="'Faculty: ' + ${register.faculty}"> </p>
+		<p th:text="'Specjalization: ' + ${register.specialization}"> </p>
+		<p th:text="'Username: ' + ${register.username}"> </p>
+		<p th:text="'Password: ' + ${register.password}"></p>
+		<p th:text="'Repeat Password: ' + ${register.repeat_password}"> </p>
+	</form>
+</body>
+</html>

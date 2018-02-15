@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Company</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<form action="#" th:action="@{/register}" th:object="${register}" method="post">
+	  	<div class="form-group row">    
+			<div class="col-sm-7">
+				<input type="text" class="form-control" th:field="*{name}" name="name" id="name" placeholder="Name"/>
+			</div>
+		</div>
+		<div class="form-group row">   
+			<div class="col-sm-7">
+				<input type="text" class="form-control"  th:field="*{surname}" name="surname" id="surname" placeholder="Surname"/>
+			</div>
+	  	</div>
+	  	<div class="form-group row">   
+			<div class="col-sm-7">
+				<input type="text" class="form-control"  th:field="*{address}" name="address" id="address" placeholder="Address"/>
+			</div>
+	  	</div>
+	  	<div class="form-group row">   
+			<div class="col-sm-7">
+				<input type="text" class="form-control"  th:field="*{faculty}" name="faculty" id="faculty" placeholder="Faculty"/>
+			</div>
+	  	</div>
+	  	<div class="form-group row">   
+			<div class="col-sm-7">
+				<input type="text" class="form-control"  th:field="*{specialization}" name="specialization" id="specialization" placeholder="Specjalization"/>
+			</div>
+	  	</div>
+	  	<div class="form-group row">   
+			<div class="col-sm-7">
+				<input type="text" class="form-control"  th:field="*{username}" name="username" id="username" placeholder="Email"/>
+			</div>
+	  	</div>
+	  	<div class="form-group row">   
+			<div class="col-sm-7">
+				<input type="password" class="form-control"  th:field="*{password}" name="password" id="password" placeholder="Password"/>
+			</div>
+	  	</div>
+	  	<div class="form-group row">   
+			<div class="col-sm-7">
+				<input type="password" class="form-control"  th:field="*{repeat_password}" name="repeat_password" id="repeat_password" placeholder="Repeat password"/>
+			</div>
+	  	</div>
+	  	<div class="form-group row">
+			<input type="submit" name="save" class="btn btn-primary col-sm-2" data-dismiss="modal" value="Register" />
+		</div>
+	  </form>
+	</div>
+</body>
+</html>

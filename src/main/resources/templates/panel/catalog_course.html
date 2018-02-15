@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Company</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div id="container">
+		<table class="table table-striped">
+	    <thead>
+	      <tr>
+	        <th>Name:</th>
+	        <th>Description</th>
+	        <th>Instructor</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr th:each="cours :${courses.content}">
+	        <td th:text="${cours.course_name}"></td>
+	        <td th:text="${cours.description}"></td>
+	        <td th:text="${cours.instructor}"></td>
+	      </tr>
+	    </tbody>
+	  </table>
+	  <hr/>
+	  <ul class="nav nav-pills">
+	  	<li class="nav-item" th:each="i : ${#numbers.sequence(0,courses.totalPages-1)}">
+	  		<a th:href="@{/(page=${i})}" th:text="${i}" class="nav-link"></a>
+	  	</li>
+	  </ul>
+	</div>
+	
+	
+</body>
+</html>
