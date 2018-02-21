@@ -8,6 +8,24 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<table class="table table-striped">
+	<thead>
+		<th>Number:</th>
+		<th>Name:</th>
+	    <th>Instructor:</th>
+	    <th>Status:</th>
+	    <th>Menu:</th>
+	</thead>
+	<tbody>
+		<tr th:each="cours :${my_cours}">
+			<td th:text="${cours.id}"></td>
+			<td th:text="${cours.course_name}"></td>
+			<td th:text="${cours.course_instructor}"></td>
+			<td th:text="${cours.status}"></td>
+			<td><a th:href="@{/dashboard/delete_course/{id}/(id=${cours.id})}" class="btn btn-danger col-sm-8">Delete</a></td>
+		</tr>
+	</tbody>
+</table>
 
 </body>
 </html>

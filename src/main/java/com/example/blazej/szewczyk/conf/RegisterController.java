@@ -36,9 +36,7 @@ public class RegisterController {
 			
 			if(register.getPassword().matches(register.getRepeat_password())) {
 				BCryptPasswordEncoder bCrypt = new BCryptPasswordEncoder();
-				String hash_password = bCrypt.encode(register.getPassword());
-				
-				
+				String hash_password = bCrypt.encode(register.getPassword());	
 				
 				Student student = new Student(register.getName(),register.getSurname(), register.getAddress(), register.getFaculty(), register.getSpecialization(), register.getUsername(), hash_password);
 				studentRepo.save(student);

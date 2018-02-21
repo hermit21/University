@@ -1,5 +1,7 @@
 package com.example.blazej.szewczyk.conf;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -42,10 +44,11 @@ public class DashboardController {
 		
 		model.addAttribute("courses", courseRepo.findAll(new PageRequest(page, 5)));
 		
+		
 		return "panel/catalog_course";
 	}
 	
-	@PostMapping("/dashboard/all_course/{id}")
+	@GetMapping("/dashboard/all_course/{id}")
 	public String addCourse(@PathVariable Integer id, ModelMap modelMap) {
 		
 		Courses course = courseRepo.findOne(id);
@@ -57,4 +60,24 @@ public class DashboardController {
 		
 		return "panel/course_added";
 	}
+	
+	@GetMapping("/dashboard/my_course/")
+	public String myCourse(Model model, ModelMap modelMap, HttpServletRequest request) {
+		
+		String student_id = (String) modelMap.get("student_username");
+		
+		request.setAttribute("my_cours", mycourseRepo.findBy(student_id));
+		
+		
+		return "panel/course_added";
+	}
+	
+	@GetMapping("/dashboard/delete_course/{id}")
+	public String deleteCoursFromList(@PathVariable Integer id) {
+		
+		mycourseRepo.delete(id);
+		
+		return "redirect:panel/catalog_course";
+	}
+	
 }

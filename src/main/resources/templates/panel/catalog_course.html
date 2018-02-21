@@ -9,28 +9,35 @@
 </head>
 <body>
 	<div id="container">
+	<form action="#" th:action="@{/dashboard/all_course}" th:object="${courses}" method="get">
 		<table class="table table-striped">
 	    <thead>
 	      <tr>
+	      	<th>Numer:</th>
 	        <th>Name:</th>
 	        <th>Description</th>
 	        <th>Instructor</th>
+	        <th>Menu</th>
 	      </tr>
 	    </thead>
 	    <tbody>
 	      <tr th:each="cours :${courses.content}">
+	      	<td th:text="${cours.id}"></td>
 	        <td th:text="${cours.course_name}"></td>
 	        <td th:text="${cours.description}"></td>
 	        <td th:text="${cours.instructor}"></td>
+	        <td><a th:href="@{/dashboard/all_course/{id}/(id=${cours.id})}" class="btn btn-success col-sm-8">Add Course</a></td>
 	      </tr>
-	    </tbody>
+	      <ul class="nav nav-pills">
+		  	<li class="nav-item" th:each="i : ${#numbers.sequence(0,courses.totalPages-1)}">
+		  		<a th:href="@{/(page=${i})}" th:text="${i}" class="nav-link"></a>
+		  	</li>
+		  </ul>
+	    </tbody>  
+		  
 	  </table>
-	  <hr/>
-	  <ul class="nav nav-pills">
-	  	<li class="nav-item" th:each="i : ${#numbers.sequence(0,courses.totalPages-1)}">
-	  		<a th:href="@{/(page=${i})}" th:text="${i}" class="nav-link"></a>
-	  	</li>
-	  </ul>
+	  </form>
+	 
 	</div>
 	
 	

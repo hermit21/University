@@ -22,6 +22,8 @@ public class MyCourse {
 	
 	private String status;
 	
+	
+
 	public MyCourse() {}
 	
 	public MyCourse(String course_name, String course_instructor, String student_id, String status) {
@@ -30,6 +32,21 @@ public class MyCourse {
 		this.course_instructor = course_instructor;
 		this.student_id = student_id;
 		this.status = status;
+	}
+	
+	
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	/**

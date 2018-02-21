@@ -47,9 +47,8 @@ public class HomeController {
 		Student student = studentRepo.findByUsername(login.getUsername());
 		
 		BCryptPasswordEncoder bCrypt = new BCryptPasswordEncoder();
-		System.out.println(bCrypt.matches(login.getPassword(), student.getPassword()));
+		//System.out.println(bCrypt.matches(login.getPassword(), student.getPassword()));
 		if(bCrypt.matches(login.getPassword(), student.getPassword())) {
-			
 			
 			map.put("student_username", student.getUsername());
 			
@@ -59,8 +58,5 @@ public class HomeController {
 		
 		return "index";
 	}
-	
-	
-	
 	
 }
