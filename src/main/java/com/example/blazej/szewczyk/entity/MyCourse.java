@@ -20,7 +20,7 @@ public class MyCourse {
 	
 	private String student_id;
 	
-	private String status;
+	private String status; 
 	
 	
 

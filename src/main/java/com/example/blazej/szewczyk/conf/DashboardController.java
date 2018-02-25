@@ -58,7 +58,7 @@ public class DashboardController {
 		
 		mycourseRepo.save(myCourse);
 		
-		return "panel/course_added";
+		return "redirect:/dashboard/my_course/";
 	}
 	
 	@GetMapping("/dashboard/my_course/")
@@ -77,7 +77,7 @@ public class DashboardController {
 		
 		mycourseRepo.delete(id);
 		
-		return "redirect:panel/catalog_course";
+		return "redirect:/dashboard/my_course/";
 	}
 	
 }
